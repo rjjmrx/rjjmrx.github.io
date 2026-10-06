@@ -24,5 +24,5 @@ tags: [个人成长, 流量彩票]
   marginheight="0" 
   width="100%" 
   height="90" 
-  src="//i.y.qq.com/n2/m/outchain/player/index.html?songid=002y6Wk71Q643t&songtype=0">
+  src=["//i.y.qq.com/n2/m/outchain/player/index.html?songid=002y6Wk71Q643t&songtype=0">](https://i.y.qq.com/v8/playsong.html?songid=377258054#webchat_redirect)
 </iframe>
