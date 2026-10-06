@@ -1,6 +1,15 @@
+/* 强行死锁大厂纯黑/深灰极客配色 + 高级背景图 */
 :root {
-  --main-bg: linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)), 
-             url('你的背景图片链接.jpg') !important;
-  --main-bg-attachment: fixed !important;
-  --main-bg-size: cover !important;
+  /* 高级半透明遮罩 + 全屏固定背景图 */
+  --main-bg: linear-gradient(rgba(13, 17, 23, 0.88), rgba(13, 17, 23, 0.88)), 
+             url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80') !important;
+  --main-bg-attachment: fixed !important;   /* 滚动时背景图固定 */
+  --main-bg-size: cover !important;          /* 铺满全屏 */
+  
+  --mask-bg: rgba(22, 27, 34, 0.8) !important;  /* 侧边栏/卡片半透明极深灰 */
+  --tb-bg: rgba(22, 27, 34, 0.9) !important;    /* 顶栏背景 */
+  --main-border-color: #30363d !important;      /* 科技感深灰色边框 */
+  --text-color: #c9d1d9 !important;             /* 高对比度极客白文字 */
+  --heading-color: #f0f6fc !important;          /* 标题纯白 */
+  --link-color: #58a6ff !important;             /* 科技蓝超链接 */
 }
