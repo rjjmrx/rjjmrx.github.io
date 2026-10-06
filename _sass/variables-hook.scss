@@ -1,11 +1,6 @@
-/* 强行死锁为顶级大厂纯黑/深灰极客配色 */
 :root {
-  --main-bg: #0d1117 !important;          /* GitHub/Vercel 同款深黑背景 */
-  --mask-bg: #161b22 !important;          /* 侧边栏/卡片极深灰背景 */
-  --tb-bg: #161b22 !important;            /* 顶栏背景 */
-  --main-border-color: #30363d !important;/* 科技感深灰色边框 */
-  --article-clean-bg: #0d1117 !important;
-  --text-color: #c9d1d9 !important;       /* 高对比度极客白文字 */
-  --heading-color: #f0f6fc !important;    /* 标题纯白 */
-  --link-color: #58a6ff !important;       /* 科技蓝超链接 */
+  --main-bg: linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)), 
+             url('你的背景图片链接.jpg') !important;
+  --main-bg-attachment: fixed !important;
+  --main-bg-size: cover !important;
 }
