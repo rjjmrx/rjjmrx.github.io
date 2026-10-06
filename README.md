@@ -37,3 +37,13 @@ This work is published under [MIT][mit] License.
 [chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+<!-- 网易云音乐生成的外链播放器组件 -->
+<iframe 
+  frameborder="no" 
+  border="0" 
+  marginwidth="0" 
+  marginheight="0" 
+  width="100%" 
+  height="86" 
+  src="//music.163.com/outchain/player?type=2&id=186015&auto=1&height=66">
+</iframe>
