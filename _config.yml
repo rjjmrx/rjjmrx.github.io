@@ -1,4 +1,35 @@
-# The Site Configuration
+# ==========================================
+# 顶级科技大厂风 极客主题配置
+# ==========================================
+
+# 1. 强制启用暗黑模式 (Dark Mode)
+theme_mode: dark
+
+# 2. 侧边栏与布局增强
+avatar: 'https://github.com/github.png' # 默认极客头像，后续可换
+sidebar:
+  layout: left
+  collapsible: true
+
+# 3. 顶级代码块高亮与复制按钮
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true            # 显示代码行号
+      bold_every: 5
+
+# 4. 文章阅读体验强化
+toc: true                            # 自动生成右侧目录栏 (Table of Contents)
+comments:
+  active: ''                         # 保持干净无杂质
+
+# 5. 社交与导航图标展示
+social:
+  name: GitHuber
+  email: ''
+  links:
+    - https://github.com/           # GitHub 图标
+    - https://x.com/                # X (Twitter) 图标# The Site Configuration
 
 # Import the theme
 theme: jekyll-theme-chirpy
