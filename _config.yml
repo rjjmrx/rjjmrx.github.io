@@ -7,8 +7,8 @@ title: 数字空间                     # 博客大标题
 tagline: 苟着发育成型，做大后期玩家    # 博客副标题
 description: >-                     # 搜索引擎描述
   记录信息差、硬核工具与概率论打法。下行风险有限，上行收益无限。
-url: 'https://yueqiluo.space'# 明天域名通了改你的新域名
-author: 你的名字                   # 作者名
+url: 'https://yueqiluo.space'   # 填你的专属域名（注意不要加结尾斜杠 /）
+baseurl: ''                    # 必须留空！或者填 ''（单引号中间什么都不填）名
 
 # 2. 语言与时区
 lang: zh-CN
