@@ -1,11 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Site Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yueqi Luo | 个人主页</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+            --line-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        article p {
+            color: #cbd5e1;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        article p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to yueqiluo.space</h1>
+
+    <div class="container">
+        <!-- 头部信息 -->
+        <header>
+            <h1>Yueqi Luo</h1>
+            <div class="subtitle">欢迎来到我的个人数字空间</div>
+        </header>
+
+        <!-- 主体文章 -->
+        <main>
+            <div class="card">
+                <article>
+                    <h2>关于这个空间：重塑与探索</h2>
+                    <p>搭建这个网站的初衷，是希望为自己构建一个不受算法干扰、真正独立的小天地。在信息爆炸的当下，拥有一个能够静下心来记录思考、整理知识与留存灵感的地方显得尤为珍贵。</p>
+                    <p>这里将用来记录我在技术探索、个人成长以及日常思考中的点滴。无论是闪现的灵感、阶段性的复盘，还是对于某个领域的深入研读，都会逐渐沉淀在这个域名之下。</p>
+                    <p>域名 <code>yueqiluo.space</code> 代表着属于我的一方空间。构建一个网站并非终点，而是一个持续演进的过程。随着时间的推移，这里的内容也会不断丰富和迭代。</p>
+                </article>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2026 Yueqi Luo. Built with GitHub Pages & Custom Domain.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
