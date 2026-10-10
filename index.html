@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>21世纪的岳绮罗</title>
+    <title>Yueqi Luo | 独立数字空间</title>
+    <!-- 网页小图标，可以换成你喜欢的 -->
     <link rel="icon" href="https://img.icons8.com/ios-filled/50/38bdf8/astronaut.png">
     
+    <!-- 引入字体与图标库 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --glass-bg: rgba(15, 23, 42, 0.8);
+            --glass-bg: rgba(15, 23, 42, 0.85); /* 稍微调暗，增加深邃感 */
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
-            --accent: #38bdf8;
+            --accent: #38bdf8; /* 天蓝色作为点缀 */
+            --footer-bg: rgba(10, 16, 28, 0.95); /* 底部深色区域 */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,312 +28,199 @@
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* 垂直排列，便于底部内容展示 */
+            justify-content: flex-start;
             align-items: center;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* 动态视频背景（如果你用了 bg.mp4 就会生效） */
-        .bg-video {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            filter: brightness(0.4);
-        }
-
-        /* 备用静态壁纸（如果没用视频会自动作为兜底） */
+        /* 静态壁纸兜底 */
         .bg-wallpaper {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: url('file:///D:/%E5%B0%91%E7%88%B7/52.webp') no-repeat center center/cover;
-            filter: brightness(0.4);
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+            filter: brightness(0.4) saturate(0.8); /* 稍微降低色彩和亮度 */
             z-index: -3;
         }
 
+        /* 主体玻璃卡片容器 */
         .glass-container {
             width: 90%;
-            max-width: 720px;
+            max-width: 780px; /* 稍微加宽，增加专业感 */
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            margin: 2rem 0;
+            padding: 3rem; /* 增加内边距，减少局促感 */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            margin: 4rem 0 0 0; /* 主体和底部不贴太近，增加过渡感 */
+            flex-grow: 1; /* 让容器可以伸展 */
+            display: flex;
+            flex-direction: column;
         }
 
         /* 头部个人信息 */
         .profile-header {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
             border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 1.5rem;
+            padding-bottom: 2rem;
         }
 
+        /* 头像：使用用户图片 */
         .avatar {
-            width: 80px; height: 80px;
+            width: 100px; height: 100px; /* 加大头像，增加视觉重心 */
             border-radius: 50%;
-            border: 2px solid var(--accent);
+            border: 3px solid var(--accent); /* 天蓝色描边 */
             object-fit: cover;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); /* 头像发光 */
         }
 
-        .profile-info h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .profile-info p { color: var(--text-sub); font-size: 0.95rem; }
+        .profile-info h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .profile-info p { color: var(--text-sub); font-size: 1rem; }
 
+        /* 块级元素通用样式 */
         .section-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin: 1.5rem 0 0.8rem 0;
+            margin: 2rem 0 1rem 0;
             color: var(--accent);
             letter-spacing: 0.05em;
+            text-transform: uppercase; /* 大写，增加专业感 */
         }
 
         /* 宣言与简介 */
         .manifesto-box {
-            background: rgba(56, 189, 248, 0.05);
-            border-left: 3px solid var(--accent);
-            padding: 1rem 1.25rem;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            background: rgba(56, 189, 248, 0.08); /* 稍微加深点缀色 */
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 1rem;
+            line-height: 1.8;
             color: #e2e8f0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        /* 项目与博客网格卡片 */
-        .cards-grid {
+        /* 博客随笔区 (Blog) - 使用新卡片样式 */
+        .articles-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .card-item {
-            background: rgba(255, 255, 255, 0.03);
+        .article-card {
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--glass-border);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 12px;
             text-decoration: none;
             color: var(--text-main);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card-item:hover {
-            background: rgba(255, 255, 255, 0.07);
+        .article-card:hover {
+            background: rgba(255, 255, 255, 0.08);
             border-color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
-        .card-item h3 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--accent); }
-        .card-item p { font-size: 0.85rem; color: var(--text-sub); }
+        .article-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--accent); }
+        .article-card p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.6; }
+        .article-card .date { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: auto; padding-top: 1rem;}
 
-        /* 社交链接按钮 */
-        .links-grid {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+        /* 分离线 */
+        .footer-sep {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+            margin-top: auto; /* 将分离线推到底部 */
         }
 
-        .link-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: 0.2s;
+        /* 成熟底部区域 */
+        footer {
+            width: 100%;
+            background: var(--footer-bg);
+            border-top: 1px solid var(--glass-border);
+            padding: 2.5rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 0;
+            z-index: 10;
         }
 
-        .link-btn:hover { background: var(--accent); color: #0f172a; }
-
-        /* 音乐播放器组件 */
-        .music-player {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 0.8rem 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        footer p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
         }
-
-        .music-meta { display: flex; align-items: center; gap: 1rem; }
-        .music-icon { font-size: 1.3rem; color: var(--accent); }
-        .song-name { font-size: 0.9rem; font-weight: 500; }
-        .song-artist { font-size: 0.75rem; color: var(--text-sub); }
-
-        .control-btns { display: flex; gap: 0.5rem; align-items: center; }
-        .play-btn {
-            background: var(--accent);
-            border: none;
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
-        }
-        .play-btn:hover { transform: scale(1.1); }
-        .sub-btn { background: rgba(255,255,255,0.1); color: white; width: 30px; height: 30px; font-size: 0.75rem; }
-
-        footer { text-align: center; margin-top: 1.5rem; font-size: 0.75rem; color: var(--text-sub); }
     </style>
 </head>
 <body>
 
-    <!-- 背景视频：如果你上传了 bg.mp4 会自动循环播放；没上传则显示底部的静态背景 -->
-    <video class="bg-video" autoplay muted loop playsinline>
-        <source src="ooEQBf77WiwmMooALQ1QiAxEIpslBu9pSgICii.m4a" type="video/m4a">
-    </video>
+    <!-- 备用静态背景 -->
     <div class="bg-wallpaper"></div>
 
     <div class="glass-container">
-        <!-- 1. 名字与简介修改区 -->
+        <!-- 头部个人信息：使用用户图片作为头像 -->
         <div class="profile-header">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Avatar" class="avatar">
+            <!-- 直接使用你上传的图片 -->
+            <img src="image_0.png" alt="Avatar" class="avatar">
             <div class="profile-info">
-                <h1>Mr GONG</h1> <!-- 在这里修改你的名字 -->
-                <p>Digital Pioneer & Independent Creator</p> <!-- 在这里修改你的副标题/身份 -->
+                <h1>Yueqi Luo</h1> 
+                <p>Digital Pioneer & Independent Creator</p>
             </div>
         </div>
 
-        <!-- 2. 装逼实用的独立宣言 -->
+        <!-- 独立宣言 -->
         <div class="section-title">MANIFESTO</div>
         <div class="manifesto-box">
-            “在这个被各大算法与聚合平台层层围猎的时代，我们习惯了寄人篱下。而这里，是我用纯粹的代码与独立域名筑起的赛博灯塔——没有大数据杀熟，没有内容审查，自主掌控每一行逻辑。代码即主权，域名即领土。”
+            “在这个被算法聚合平台层层围猎的时代，我们习惯了数字资产寄人篱下。而这里，是我用纯粹的代码与独立域名筑起的赛博灯塔。代码即主权，域名即领土。无论是文字、思想还是数据，都应在此独立自主地掌控与共鸣，而非沦为平台的消耗品。”
         </div>
 
-        <!-- 3. 项目展示区 (Projects) -->
-        <div class="section-title">FEATURED PROJECTS</div>
-        <div class="cards-grid">
-            <a href="https://github.com/rjjmrx" target="_blank" class="card-item">
-                <h3><i class="fas fa-code-branch"></i> Space Hub</h3>
-                <p>个人数字空间与静态站点架构核心。</p>
+        <!-- 博客思考与随笔 -->
+        <div class="section-title">LATEST INSIGHTS</div>
+        <div class="articles-list">
+            <a href="#" class="article-card">
+                <h3><i class="fas fa-book-open"></i> 摆脱平台的数字流浪：独立站的美学重构</h3>
+                <p>探索极简主义与模块化技术架构在构建独立站时的融合。不仅仅是视觉的净化，更是对自身数字内容主权的重申，从协议层开始建立秩序。</p>
+                <div class="date">Oct 12, 2026</div>
             </a>
-            <a href="#" target="_blank" class="card-item">
-                <h3><i class="fas fa-terminal"></i> Workflow Automation</h3>
-                <p>高效脚本与自动化工具集，重塑生产力。</p>
+            <a href="#" class="article-card">
+                <h3><i class="fas fa-feather-alt"></i> 秩序与混沌之间：Web3 时代的个人表达</h3>
+                <p>深入分析分布式技术与传统个人博客的结合可能。如何在去中心化的秩序中寻找自我表达的空间，而不仅是被动接受算法的馈赠。在开放协议上重构秩序。</p>
+                <div class="date">Sep 28, 2026</div>
+            </a>
+            <a href="#" class="article-card">
+                <h3><i class="fas fa-terminal"></i> 自动化工作流与数字效率革命</h3>
+                <p>关于脚本、API 与自定义工具集如何重塑日常工作。不仅仅是提高效率，更是一种思维方式的转变，将重复性劳动转化为独立系统的自主运作。</p>
+                <div class="date">Sep 15, 2026</div>
+            </a>
+            <a href="#" class="article-card">
+                <h3><i class="fas fa-cloud"></i> 静态站与分布式存储：数字资产的永恒保存思考</h3>
+                <p>在数据随时可能被抹去的时代，如何通过 GitHub Pages 与 IPFS 等协议组合，实现自身内容的持久化保存。一种对个人主权的保护机制。</p>
+                <div class="date">Aug 30, 2026</div>
             </a>
         </div>
 
-        <!-- 4. 博客随笔区 (Blog) -->
-        <div class="section-title">LATEST ARTICLES</div>
-        <div class="cards-grid">
-            <a href="#" class="card-item">
-                <h3><i class="fas fa-book-open"></i> 摆脱平台的数字流浪</h3>
-                <p>为什么每个人都需要一个独立域名与自主博客？</p>
-            </a>
-            <a href="#" class="card-item">
-                <h3><i class="fas fa-feather-alt"></i> 秩序与混沌之间</h3>
-                <p>关于极简主义网页设计与美学重构的思考。</p>
-            </a>
-        </div>
+        <!-- 分离线 -->
+        <div class="footer-sep"></div>
 
-        <!-- 社交主页直达 -->
-        <div class="section-title">CONNECT</div>
-        <div class="links-grid">
-            <a href="https://github.com/rjjmrx" target="_blank" class="link-btn"><i class="fab fa-github"></i> GitHub</a>
-            <a href="mailto:your-email@domain.com" class="link-btn"><i class="fas fa-envelope"></i> Contact</a>
-        </div>
-
-        <!-- 5. 音乐播放器代码区 -->
-        <div class="section-title">SOUNDTRACK</div>
-        <div class="music-player">
-            <div class="music-meta">
-                <i class="fas fa-compact-disc music-icon" id="discIcon"></i>
-                <div>
-                    <div class="song-name" id="songName">加载中...</div>
-                    <div class="song-artist" id="songArtist">Yueqi's Playlist</div>
-                </div>
-            </div>
-            <div class="control-btns">
-                <button class="play-btn sub-btn" onclick="prevSong()"><i class="fas fa-backward"></i></button>
-                <button class="play-btn" id="playBtn" onclick="togglePlay()"><i class="fas fa-play" id="playIcon"></i></button>
-                <button class="play-btn sub-btn" onclick="nextSong()"><i class="fas fa-forward"></i></button>
-            </div>
-        </div>
-
-        <audio id="bgMusic"></audio>
-
-        <footer>
-            © 2026 Yueqi Luo. Powered by GitHub Pages & Custom Domain.
-        </footer>
     </div>
 
-    <script>
-        // 歌单配置：你可以在这里加无限首歌！
-        // 如果你上传了 bg.mp4，也可以把它当歌放进来；或者放你下载的 mp3 文件名
-        const playlist = [
-            {
-                name: "抖音背景精选音频",
-                artist: "Yueqi's Collection",
-                src: "bg.mp4"  // 指向你上传的 mp4 文件（它会自动只播声音）
-            },
-            {
-                name: "Ambient Chill Relaxing",
-                artist: "Bensound",
-                src: "https://www.bensound.com/bensound-music/bensound-relaxing.mp3"
-            }
-        ];
+    <!-- 成熟底部区域 -->
+    <footer>
+        <p>© 2026 Yueqi Luo. Independent Digital Identity.</p>
+        <p>This is a zero-tracking, algorithm-free space. Built for genuine connection and free expression on the open web.</p>
+        <p>Hosted on a secure, public platform. All thoughts are my own.</p>
+    </footer>
 
-        let currentIndex = 0;
-        const audio = document.getElementById('bgMusic');
-        const songName = document.getElementById('songName');
-        const songArtist = document.getElementById('songArtist');
-        const playIcon = document.getElementById('playIcon');
-
-        function loadSong(index) {
-            const song = playlist[index];
-            songName.innerText = song.name;
-            songArtist.innerText = song.artist;
-            audio.src = song.src;
-        }
-
-        function togglePlay() {
-            if (audio.paused) {
-                audio.play();
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-            } else {
-                audio.pause();
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
-            }
-        }
-
-        function nextSong() {
-            currentIndex = (currentIndex + 1) % playlist.length;
-            loadSong(currentIndex);
-            audio.play();
-            playIcon.classList.remove('fa-play');
-            playIcon.classList.add('fa-pause');
-        }
-
-        function prevSong() {
-            currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-            loadSong(currentIndex);
-            audio.play();
-            playIcon.classList.remove('fa-play');
-            playIcon.classList.add('fa-pause');
-        }
-
-        audio.addEventListener('ended', nextSong);
-        loadSong(currentIndex);
-    </script>
 </body>
 </html>
