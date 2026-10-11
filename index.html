@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yueqi Luo | 独立数字空间</title>
-    <!-- 网页小图标，可以换成你喜欢的 -->
+    <title>Yueqi Luo | 独立数字空间与智慧门户</title>
+    <!-- 网页小图标 -->
     <link rel="icon" href="https://img.icons8.com/ios-filled/50/38bdf8/astronaut.png">
     
-    <!-- 引入字体与图标库 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 字体与图标库 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --glass-bg: rgba(15, 23, 42, 0.85); /* 稍微调暗，增加深邃感 */
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(13, 20, 36, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-hover: rgba(56, 189, 248, 0.08);
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
-            --accent: #38bdf8; /* 天蓝色作为点缀 */
-            --footer-bg: rgba(10, 16, 28, 0.95); /* 底部深色区域 */
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.35);
+            --gold: #fbbf24;
+            --footer-bg: rgba(8, 13, 24, 0.95);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,36 +32,36 @@
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
-            flex-direction: column; /* 垂直排列，便于底部内容展示 */
-            justify-content: flex-start;
+            flex-direction: column;
             align-items: center;
             overflow-x: hidden;
             position: relative;
+            background-color: #0b0f19;
         }
 
-        /* 静态壁纸兜底 */
+        /* 2026 科技感动态深邃背景 */
         .bg-wallpaper {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
-            filter: brightness(0.4) saturate(0.8); /* 稍微降低色彩和亮度 */
+            filter: brightness(0.25) saturate(0.8);
             z-index: -3;
         }
 
         /* 主体玻璃卡片容器 */
         .glass-container {
-            width: 90%;
-            max-width: 780px; /* 稍微加宽，增加专业感 */
+            width: 92%;
+            max-width: 900px;
             background: var(--glass-bg);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 3rem; /* 增加内边距，减少局促感 */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-            margin: 4rem 0 0 0; /* 主体和底部不贴太近，增加过渡感 */
-            flex-grow: 1; /* 让容器可以伸展 */
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            margin: 4rem 0;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
@@ -69,82 +73,198 @@
             gap: 2rem;
             margin-bottom: 2.5rem;
             border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 2rem;
+            padding-bottom: 2.2rem;
         }
 
-        /* 头像：使用用户图片 */
+        /* 头像（保持你的原样） */
         .avatar {
-            width: 100px; height: 100px; /* 加大头像，增加视觉重心 */
+            width: 105px; 
+            height: 105px;
             border-radius: 50%;
-            border: 3px solid var(--accent); /* 天蓝色描边 */
+            border: 3px solid var(--accent);
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); /* 头像发光 */
+            box-shadow: 0 0 25px var(--accent-glow);
+            flex-shrink: 0;
         }
 
-        .profile-info h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .profile-info h1 { 
+            font-size: 2.4rem; 
+            font-weight: 800; 
+            margin-bottom: 0.4rem; 
+            letter-spacing: -0.02em; 
+            background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .profile-info p { color: var(--text-sub); font-size: 1rem; }
 
-        /* 块级元素通用样式 */
+        /* 分区标题 */
         .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem 0;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin: 2.8rem 0 1.2rem 0;
             color: var(--accent);
-            letter-spacing: 0.05em;
-            text-transform: uppercase; /* 大写，增加专业感 */
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        /* 宣言与简介 */
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--glass-border), transparent);
+        }
+
+        /* 宣言卡片 */
         .manifesto-box {
-            background: rgba(56, 189, 248, 0.08); /* 稍微加深点缀色 */
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(255, 255, 255, 0.02));
             border-left: 4px solid var(--accent);
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 12px 12px 0;
-            font-size: 1rem;
-            line-height: 1.8;
+            padding: 1.6rem 1.8rem;
+            border-radius: 0 16px 16px 0;
+            font-size: 1.05rem;
+            line-height: 1.9;
             color: #e2e8f0;
-            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-weight: 400;
         }
 
-        /* 博客随笔区 (Blog) - 使用新卡片样式 */
-        .articles-list {
+        /* 顶级人类智慧与案例门户 (Wisdom Portal Grid) */
+        .wisdom-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        .article-card {
-            background: rgba(255, 255, 255, 0.04);
+        @media (max-width: 720px) {
+            .wisdom-grid { grid-template-columns: 1fr; }
+            .glass-container { padding: 1.8rem; }
+        }
+
+        .wisdom-card {
+            background: var(--card-bg);
             border: 1px solid var(--glass-border);
             padding: 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
 
-        .article-card:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .wisdom-card:hover {
+            background: var(--card-hover);
             border-color: var(--accent);
             transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.1);
         }
 
-        .article-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--accent); }
-        .article-card p { font-size: 0.95rem; color: var(--text-sub); line-height: 1.6; }
-        .article-card .date { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-top: auto; padding-top: 1rem;}
+        .wisdom-card .person {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .wisdom-card .person-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .wisdom-card .tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            text-transform: uppercase;
+        }
+
+        .wisdom-card .quote {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+            margin-bottom: 1rem;
+            font-style: italic;
+            border-left: 2px solid rgba(255,255,255,0.2);
+            padding-left: 0.8rem;
+        }
+
+        .wisdom-card .case-study {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            background: rgba(0,0,0,0.25);
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .wisdom-card .case-study strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* 导航与工具链 */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .nav-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem 1.4rem;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .nav-card i {
+            font-size: 1.3rem;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 10px;
+        }
+
+        .nav-card-info h4 { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .nav-card-info p { font-size: 0.8rem; color: var(--text-sub); }
 
         /* 分离线 */
         .footer-sep {
             width: 100%;
             height: 1px;
             background: linear-gradient(to right, transparent, var(--glass-border), transparent);
-            margin-top: auto; /* 将分离线推到底部 */
+            margin: 3.5rem 0 1.5rem 0;
         }
 
-        /* 成熟底部区域 */
+        /* 底部 */
         footer {
             width: 100%;
             background: var(--footer-bg);
@@ -153,25 +273,20 @@
             text-align: center;
             font-size: 0.85rem;
             color: var(--text-sub);
-            margin-top: 0;
             z-index: 10;
         }
 
-        footer p {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
+        footer p { margin-bottom: 0.5rem; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <!-- 备用静态背景 -->
+    <!-- 背景壁纸 -->
     <div class="bg-wallpaper"></div>
 
     <div class="glass-container">
-        <!-- 头部个人信息：使用用户图片作为头像 -->
+        <!-- 头部个人信息：完全保留你的头像与主信息 -->
         <div class="profile-header">
-            <!-- 直接使用你上传的图片 -->
             <img src="image_0.png" alt="Avatar" class="avatar">
             <div class="profile-info">
                 <h1>Mr GONG</h1> 
@@ -179,34 +294,106 @@
             </div>
         </div>
 
-        <!-- 独立宣言 -->
-        <div class="section-title">MANIFESTO</div>
+        <!-- 独立宣言（更新为你指定的经典文案） -->
+        <div class="section-title"><i class="fas fa-fire"></i> MANIFESTO</div>
         <div class="manifesto-box">
-            “在这个被算法聚合平台层层围猎的时代，我们习惯了数字资产寄人篱下。而这里，是我用纯粹的代码与独立域名筑起的赛博灯塔。代码即主权，域名即领土。无论是文字、思想还是数据，都应在此独立自主地掌控与共鸣，而非沦为平台的消耗品。”
+            “真正的年轻不是纯过日子，真正的年轻是意气风发，是迎难而上，是以小博大，是以弱胜强，是资源少但是做成一桩事业，有往后余生值得回忆的故事和传奇。”
         </div>
 
-        <!-- 博客思考与随笔 -->
-        <div class="section-title">LATEST INSIGHTS</div>
-        <div class="articles-list">
-            <a href="#" class="article-card">
-                <h3><i class="fas fa-book-open"></i> 摆脱平台的数字流浪：独立站的美学重构</h3>
-                <p>探索极简主义与模块化技术架构在构建独立站时的融合。不仅仅是视觉的净化，更是对自身数字内容主权的重申，从协议层开始建立秩序。</p>
-                <div class="date">Oct 12, 2026</div>
+        <!-- 全球顶级人类智慧与实战案例门户 (High-Agency Codex) -->
+        <div class="section-title"><i class="fas fa-crown"></i> HIGH-AGENCY CODEX | 顶级人类智慧与实战案例</div>
+        <div class="wisdom-grid">
+            
+            <!-- 案例 1: 埃隆·马斯克 -->
+            <div class="wisdom-card">
+                <div>
+                    <div class="person">
+                        <span class="person-name"><i class="fas fa-rocket" style="color:#38bdf8;"></i> Elon Musk</span>
+                        <span class="tag">第一性原理</span>
+                    </div>
+                    <div class="quote">“如果你在做一件极度重要的事情，即便概率站在你的对立面，你也依然应该去做。”</div>
+                </div>
+                <div class="case-study">
+                    <strong>⚡ 实时硬核案例：SpaceX 的破产边缘</strong>
+                    前三次发射全部爆炸、资金断裂。在第四次（最后一次机会）成功前，他把所有私人财产全部押上。这种“以小博大、赌上一切”的魄力重塑了人类航天史。
+                </div>
+            </div>
+
+            <!-- 案例 2: 纳瓦尔·拉威康特 -->
+            <div class="wisdom-card">
+                <div>
+                    <div class="person">
+                        <span class="person-name"><i class="fas fa-bolt" style="color:#fbbf24;"></i> Naval Ravikant</span>
+                        <span class="tag">杠杆与主权</span>
+                    </div>
+                    <div class="quote">“出租自己的时间永远无法实现财务自由。你必须拥有股权、代码或媒体杠杆，才能赢得自由。”</div>
+                </div>
+                <div class="case-study">
+                    <strong>⚡ 实时硬核案例：一人公司的极致效率</strong>
+                    Naval 倡导“无雇员式的高杠杆创业”，利用代码（AI/软件）和媒体（播客/文章）形成无限复制的个人资产，展示了现代个体如何打败大公司。
+                </div>
+            </div>
+
+            <!-- 案例 3: 史蒂夫·乔布斯 -->
+            <div class="wisdom-card">
+                <div>
+                    <div class="person">
+                        <span class="person-name"><i class="fab fa-apple" style="color:#e2e8f0;"></i> Steve Jobs</span>
+                        <span class="tag">现实扭曲力场</span>
+                    </div>
+                    <div class="quote">“你身边被称作‘生活’的一切，都是由并不比你聪明的人搭建起来的。你可以改变它，你可以影响它。”</div>
+                </div>
+                <div class="case-study">
+                    <strong>⚡ 实时硬核案例：iPhone 玻璃屏幕的奇迹</strong>
+                    在初代 iPhone 发布前 6 周，乔布斯坚持把塑料屏换成防刮玻璃。玻璃厂 CEO 称这不可能完成，乔布斯回答：“不要害怕，你能做到。”5 周后康宁大猩猩玻璃诞生。
+                </div>
+            </div>
+
+            <!-- 案例 4: 查理·芒格 -->
+            <div class="wisdom-card">
+                <div>
+                    <div class="person">
+                        <span class="person-name"><i class="fas fa-brain" style="color:#a855f7;"></i> Charlie Munger</span>
+                        <span class="tag">逆向思维</span>
+                    </div>
+                    <div class="quote">“如果我知道我会在哪里死去，我这辈子就永远不去那个地方。”</div>
+                </div>
+                <div class="case-study">
+                    <strong>⚡ 实时硬核案例：如何获得惨败的人生？</strong>
+                    芒格在演讲中不教年轻人如何成功，而是列举“如何让自己彻底毁灭”：吸毒、嫉妒、反复无常。只要避开这些坑，你就能超越 95% 的竞争者。
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 精选导航与工具 -->
+        <div class="section-title"><i class="fas fa-compass"></i> PORTAL NAVS | 精选赛博领地</div>
+        <div class="nav-grid">
+            <a href="#" class="nav-card">
+                <i class="fas fa-network-wired"></i>
+                <div class="nav-card-info">
+                    <h4>赛博知识库</h4>
+                    <p>顶级模型与极简工具汇总</p>
+                </div>
             </a>
-            <a href="#" class="article-card">
-                <h3><i class="fas fa-feather-alt"></i> 秩序与混沌之间：Web3 时代的个人表达</h3>
-                <p>深入分析分布式技术与传统个人博客的结合可能。如何在去中心化的秩序中寻找自我表达的空间，而不仅是被动接受算法的馈赠。在开放协议上重构秩序。</p>
-                <div class="date">Sep 28, 2026</div>
+            <a href="#" class="nav-card">
+                <i class="fas fa-microchip"></i>
+                <div class="nav-card-info">
+                    <h4>AI 自动化节点</h4>
+                    <p>重构工作流的 Agent 实验室</p>
+                </div>
             </a>
-            <a href="#" class="article-card">
-                <h3><i class="fas fa-terminal"></i> 自动化工作流与数字效率革命</h3>
-                <p>关于脚本、API 与自定义工具集如何重塑日常工作。不仅仅是提高效率，更是一种思维方式的转变，将重复性劳动转化为独立系统的自主运作。</p>
-                <div class="date">Sep 15, 2026</div>
-            </a>
-            <a href="#" class="article-card">
-                <h3><i class="fas fa-cloud"></i> 静态站与分布式存储：数字资产的永恒保存思考</h3>
-                <p>在数据随时可能被抹去的时代，如何通过 GitHub Pages 与 IPFS 等协议组合，实现自身内容的持久化保存。一种对个人主权的保护机制。</p>
-                <div class="date">Aug 30, 2026</div>
+        </div>
+
+        <!-- 随笔卡片区 -->
+        <div class="section-title"><i class="fas fa-feather-alt"></i> ESSAYS & ESSENCE | 随笔与深度思考</div>
+        <div class="nav-grid" style="grid-template-columns: 1fr;">
+            <a href="#" class="nav-card" style="padding: 1.4rem;">
+                <i class="fas fa-book-open"></i>
+                <div class="nav-card-info">
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.3rem;">摆脱平台的数字流浪：独立站的美学重构</h4>
+                    <p style="line-height: 1.6;">探索极简主义与模块化技术架构在构建独立站时的融合。不仅仅是视觉的净化，更是对自身数字内容主权的重申，从协议层开始建立秩序。</p>
+                </div>
             </a>
         </div>
 
@@ -215,7 +402,7 @@
 
     </div>
 
-    <!-- 成熟底部区域 -->
+    <!-- 底部区域 -->
     <footer>
         <p>© 2026 Yueqi Luo. Independent Digital Identity.</p>
         <p>This is a zero-tracking, algorithm-free space. Built for genuine connection and free expression on the open web.</p>
